@@ -10,18 +10,23 @@ import { SinglePost } from "./pages/SinglePost";
 // importo i layout
 import { DefaultLayout } from "./layouts/DefaultLayout";
 
+// importo contexts
+import { GlobalProvider } from "./contexts/GlobalContext";
+
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route Component={DefaultLayout}>
-          <Route Component={HomePage} path="/" />
-          <Route Component={AboutUs} path="/about-us" />
-          <Route Component={PostsList} path="/posts-list" />
-          <Route Component={SinglePost} path="/posts-list/:id" />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <GlobalProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route Component={DefaultLayout}>
+            <Route Component={HomePage} path="/" />
+            <Route Component={AboutUs} path="/about-us" />
+            <Route Component={PostsList} path="/posts-list" />
+            <Route Component={SinglePost} path="/posts-list/:id" />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </GlobalProvider>
   )
 }
 
